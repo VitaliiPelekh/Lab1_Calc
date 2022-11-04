@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestList>
+	<ValidData incomingData="(3+(1/2+5)-1/2)" expected="8"/>
+	<ValidData incomingData="2" expected="2"/>
+	<ValidData incomingData="1+1" expected="2"/>
+	<ValidData incomingData="700%8" expected="4"/>
+	<ValidData incomingData="2-2" expected="0"/>
+	<ValidData incomingData="666/333" expected="2"/>
+	<InValidData incomingData="(" expected="&#38;Error 01 at &lt;0&gt; — Неправильна структура в дужках, помилка на &lt;0&gt; символі."/>
+	<InValidData incomingData="1)2" expected="&#38;Error 01 at &lt;1&gt; — Неправильна структура в дужках, помилка на &lt;1&gt; символі."/>
+	<InValidData incomingData="!" expected="&#38;Error 02 at &lt;0&gt; — Невідомий оператор на &lt;0&gt; символі."/>
+	<InValidData incomingData="2!" expected="&#38;Error 02 at &lt;1&gt; — Невідомий оператор на &lt;1&gt; символі."/>
+	<InValidData incomingData="*+1" expected="&#38;Error 03 — Невірна синтаксична конструкція вхідного виразу."/>
+	<InValidData incomingData="*8*" expected="&#38;Error 03 — Невірна синтаксична конструкція вхідного виразу."/>
+	<InValidData incomingData="1+*1" expected="&#38;Error 04 at &lt;2&gt; — Два підряд оператори на &lt;2&gt; символі."/>
+	<InValidData incomingData="6+6**6" expected="&#38;Error 04 at &lt;4&gt; — Два підряд оператори на &lt;4&gt; символі."/>
+	<InValidData incomingData="2*1+" expected="&#38;Error 05 — Незавершений вираз."/>
+	<InValidData incomingData="7*/" expected="&#38;Error 05 — Незавершений вираз."/>
+	<InValidData incomingData="2 147 483 647+1" expected="&#38;Error 06 — Дуже мале, або дуже велике значення числа для int. Числа повинні бути в межах від -2 147 483 648 до 2 147 483 647."/>
+	<InValidData incomingData="-2 147 483 648-1" expected="&#38;Error 06 — Дуже мале, або дуже велике значення числа для int. Числа повинні бути в межах від -2 147 483 648 до 2 147 483 647."/>
+	<InValidData incomingData="1+2+3+4+5+6+7+8+9+10+11+12+13+14+15+16+17+18+19+20+21+22+23+24+25+26+27+28+29+30+31" expected="&#38;Error 08 — Сумарна кількість чисел і операторів перевищує 30."/>
+	<InValidData incomingData="1*2*3*4*5*6*7*8*9*10*11*12*13*14*15*16*17*18*19*20*21*22*23*24*25*26*27*28*29*30" expected="&#38;Error 08 — Сумарна кількість чисел і операторів перевищує 30."/>
+	<InValidData incomingData="1/0" expected="&#38;Error 09 – Помилка ділення на 0."/>
+	<InValidData incomingData="(3+(2/0+5)-1/2)" expected="&#38;Error 09 – Помилка ділення на 0."/>
+</TestList>
